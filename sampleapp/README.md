@@ -18,18 +18,3 @@ $ docker build -t demoapp .
 
   - One can skip this step if required and use already Created and pushed image from dockerhub (Image name: yogeshvk1209/demoapp). Image has port exposed on 8080
 
-# Directory Structure
-.
-├── Dockerfile 
-├── README.md 
-└── src 
-    ├── pytask.py
-    ├── requirements.txt
-    ├── static
-    │   ├── bootstrap.min.css
-    │   ├── bootstrap-theme.css
-    │   ├── bootstrap-theme.css.map
-    │   ├── bootstrap-theme.min.css
-    │   └── bootstrap-theme.min.css.map
-    └── templates
-        └── webapp.html
