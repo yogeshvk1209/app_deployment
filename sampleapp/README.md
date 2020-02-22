@@ -20,9 +20,9 @@ $ docker build -t demoapp .
 
 # Directory Structure
 .
-├── Dockerfile
-├── README.md
-└── src
+├── Dockerfile 
+├── README.md 
+└── src 
     ├── pytask.py
     ├── requirements.txt
     ├── static
