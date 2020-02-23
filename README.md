@@ -26,9 +26,9 @@ $ docker build -t demoapp .
 
 #  The Deployment
 
-Terraform docker HA setup.
+Terraform docker setup.
 
-  - Terraform docker HA setup using nginx LB at front.
+  - Terraform docker setup using nginx LB at front.
   - Worker-nodes have port 8080 exposed only to internal VPC IPs and Nginx node has only 80 port exposed.
   - AMI being used in ECS-optimised Alinux2 (as this has most of docker and docker dependencies pre-installed).
   - IPs added to /etc/hosts file using provisioner 'remote-exec'. Updating nginx conf files through user data.
