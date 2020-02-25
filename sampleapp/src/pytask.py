@@ -23,11 +23,11 @@ class ReusableForm(Form):
 def webapp():
     form = ReusableForm(request.form)
 
-    print form.errors
+    print (form.errors)
     if request.method == 'POST':
         name=request.form['name']
         action=request.form['action']
-        print action, " ", name
+        print (action, " ", name)
         # Exclude delete action form form validation
         if (action != "Do not display typed username"):
             if form.validate():
@@ -47,6 +47,6 @@ if __name__ == "__main__":
     parser.add_option('-p', '--port', action='store', dest='port', help='The port to listen on.')
     (args, _) = parser.parse_args()
     if args.port == None:
-        print "Missing required argument: -p/--port"
+        print ("Missing required argument: -p/--port")
         sys.exit(1)
     app.run(host='0.0.0.0', port=int(args.port), debug=True)
