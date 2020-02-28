@@ -10,6 +10,7 @@ Demo Python web app created using
   - flask module
   - wtforms
   - Validators in wtforms as well as pattern-matching in HTML
+  - Updated for Python3
 
 ### Docker Image
 
