@@ -1,4 +1,5 @@
-# Create Resources
+### Create Nodes ###
+## Node1 (Docker node1)
 resource "aws_instance" "server1" {
   ami = var.ami_dock
   instance_type = var.instance_type
@@ -13,6 +14,7 @@ resource "aws_instance" "server1" {
   }
 }
 
+## Node2 (Docker node2)
 resource "aws_instance" "server2" {
   ami = var.ami_dock
   instance_type = var.instance_type
@@ -27,6 +29,7 @@ resource "aws_instance" "server2" {
   }
 }
 
+## ALB (Nginx LB)
 resource "aws_instance" "nginx" {
   ami = var.ami_lin
   instance_type = var.instance_type

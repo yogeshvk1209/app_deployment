@@ -1,5 +1,5 @@
 ### Security Groups ###
-# ELB Sec Grp
+## ALB (Nginx) Sec Grp
 resource "aws_security_group" "lbsg" {
   name = "ec2-elb-sg"
 
@@ -36,7 +36,8 @@ resource "aws_security_group" "lbsg" {
     Name = "LB_SG"
   }
 }
-# Instance Sec Grp
+
+## Instance Sec Grp
 resource "aws_security_group" "instancesg"{
   name = "instance_sec_grp"
   description = "Allow traffic from public subnet"
