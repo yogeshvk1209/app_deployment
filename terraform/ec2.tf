@@ -54,7 +54,7 @@ resource "aws_launch_template" "flask_app" {
   }
   
   key_name = "terrakey"
-  user_data = file("userdata.sh")
+  user_data = filebase64("userdata.sh")
   
   tag_specifications {
     resource_type = "instance"
