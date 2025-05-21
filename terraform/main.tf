@@ -1,22 +1,13 @@
-### Provider ###
+################ Configure the AWS provider ##########################
 provider "aws" {
-  region = var.region
-  shared_credentials_file = var.shared_credentials_file
-  #profile = "${var.profile}"
+  region = "us-west-2"
 }
 
-### Backend ###
+########################## terraform #################################
 terraform {
-  backend "s3" {
-    bucket = "terra-buck2"
-    key    = "terra-state"
-    region = "us-west-2"
-    profile = "default"
+  required_providers {
+    aws = "~> 5.90.0"
   }
+  required_version = "= 1.12.0"
 }
-
-### Keypair ###
-resource "aws_key_pair" "default" {
-  key_name = "ec2-elb-key"
-  public_key = file("${var.key_path}")
-}
+########################## terraform #################################
