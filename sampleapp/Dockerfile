@@ -23,4 +23,4 @@ EXPOSE 8080
 USER taskuser
 
 # Run the application
-CMD ["python3", "/src/pytask.py", "--port", "8080"]
+CMD ["python3", "/src/app.py", "--port", "8080"]
