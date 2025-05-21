@@ -1,13 +1,26 @@
-FROM centos:7
-MAINTAINER yogeshvk1209@gmail.com
-# Install py, pip and sudo
-RUN yum install -y epel-release && yum install -y python3 python-pip sudo && pip install --upgrade pip && yum clean all
-# Add taskuUser and provide sudo access
-RUN useradd -m taskuser && echo "taskuser:taskuser" | chpasswd && echo 'taskuser ALL=(ALL:ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
-# Install app dependencies
+# Use a Python 3.9 base image for better compatibility
+FROM python:3.9-slim
+
+# Set maintainer label
+LABEL maintainer="yogeshvk1209@gmail.com"
+
+# Install sudo (optional, only if needed by the app)
+RUN apt-get update && apt-get install -y sudo && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Add taskuser and set up home directory
+RUN useradd -m taskuser && echo "taskuser:taskuser" | chpasswd
+
+# Copy source files
 COPY ./src/ /src/
-RUN pip3 install -r /src/requirements.txt
-# Start app source
-EXPOSE  8080
+
+# Install app dependencies
+RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r /src/requirements.txt
+
+# Expose port
+EXPOSE 8080
+
+# Run as non-root user
 USER taskuser
-CMD ["python3", "/src/pytask.py", "-p 8080"]
+
+# Run the application
+CMD ["python3", "/src/app.py", "--port", "8080"]
